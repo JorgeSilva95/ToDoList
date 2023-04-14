@@ -1,15 +1,16 @@
 import { useState, useEffect } from "react";
-import ListItems from "./ListItems";
 
-function FormAdd(props) {
+function FormAdd({ addTodo }) {
   const [ItemList, SetItemList] = useState("");
-  const SubmitItem = (e) => {
-    e.preventDefault();
-    console.log(ItemList);
+  const [Id, setId] = useState(0);
+  const todoCreate = (ItemList) => {
+    const todoObj = { text: ItemList, id: Id };
+    setId(Id + 1);
+    addTodo(todoObj);
   };
   return (
     <div>
-      <form className="FormListItens" onSubmit={SubmitItem}>
+      <form className="FormListItens">
         <input
           type="text"
           id=""
@@ -19,9 +20,13 @@ function FormAdd(props) {
             SetItemList(e.target.value);
           }}
         />
-        <input type="submit" value="Adicionar ITEM" className="btnList" />
+        <input
+          type="text"
+          value="Adicionar ITEM"
+          className="btnList"
+          onClick={() => todoCreate(ItemList)}
+        />
       </form>
-      <ListItems stList={ItemList}></ListItems>
     </div>
   );
 }

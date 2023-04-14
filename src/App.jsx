@@ -1,11 +1,11 @@
 import "./App.css";
-import FormAdd from "./Components/FormAdd.jsx";
+import Home from "./pages/Home";
 
 function App() {
   return (
     <div className="App">
       <h1>HELLOWORD</h1>
-      <FormAdd />
+      <Home />
     </div>
   );
 }
