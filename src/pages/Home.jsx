@@ -1,6 +1,6 @@
 import { useState } from "react";
-import FormAdd from "../components/FormAdd";
-import ListItems from "../components/ListItems";
+import FormAdd from "../Components/FormAdd";
+import ListItems from "../Components/ListItems";
 
 function Home() {
   const [todos, setTodos] = useState([]);

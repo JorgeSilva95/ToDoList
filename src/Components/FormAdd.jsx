@@ -1,32 +1,37 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 function FormAdd({ addTodo }) {
   const [ItemList, SetItemList] = useState("");
   const [Id, setId] = useState(0);
   const todoCreate = (ItemList) => {
-    const todoObj = { text: ItemList, id: Id };
-    setId(Id + 1);
-    addTodo(todoObj);
+    if (ItemList !== "") {
+      const todoObj = { text: ItemList, id: Id };
+      setId(Id + 1);
+      addTodo(todoObj);
+      SetItemList("");
+    }
   };
   return (
     <div>
-      <form className="FormListItens">
+      <div className="FormListItens">
         <input
           type="text"
-          id=""
+          id="ItmLayer"
           className="txtList"
           placeholder="Qual item deseja adcionar?"
+          value={ItemList}
           onChange={(e) => {
             SetItemList(e.target.value);
           }}
         />
-        <input
+        <button
           type="text"
-          value="Adicionar ITEM"
           className="btnList"
           onClick={() => todoCreate(ItemList)}
-        />
-      </form>
+        >
+          Adicionar ITEM
+        </button>
+      </div>
     </div>
   );
 }

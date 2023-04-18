@@ -1,10 +1,11 @@
-import { useState, useEffect } from "react";
-
 function ListItems({ todo }) {
   console.log(todo.text);
   return (
     <div>
-      <li>{todo.text}</li>
+      <li>
+        {todo.id + 1}&nbsp;
+        {todo.text}
+      </li>
     </div>
   );
 }
